@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ROUTE MASTER</title>
+  <title>Route Master</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/14.0.0/material-components-web.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary-color: #1976d2;
@@ -31,29 +31,30 @@
     .header {
       text-align: center;
       padding: 10px 0;
-      margin-top: 10px;
+		margin-top: 10px;
       margin-bottom: 20px;
       background-color: rgb(239, 240, 238);
       box-shadow: 4px 4px #000000;
       border-radius: 4px;
-      border: 2px solid #000000;
-      width: 100%;
+		border: 2px  solid #000000;
+		width: 100%;
     }
 
-    h1 {
-      font-family: Raleway;
+     h1 {
+		font-family: Raleway;
       color: var(--primary-color);
       font-size: 13rem;
-      text-shadow: 5px 5px rgba(1, 0, 10, 0.44);
+		text-shadow: 5px 5px rgba(1, 0, 10, 0.44);
       margin: 0;
       font-weight:900;
+		
     }
-
-    p {
-      font-family: Open sans;
-      font-size: 18px;
-      font-weight: 500;
-    }
+			p {
+			font-family: Open sans;
+			font-size: 18px;
+				font-weight: 500;
+				
+		}
 
     textarea, input[type="file"] {
       width: 100%;
@@ -64,13 +65,16 @@
       background-color: white;
       font-size: 16px;
       transition: border-color 0.3s ease;
-      box-shadow: 4px 4px;
-      box-sizing: border-box;
+		box-shadow: 4px 4px;
+		box-sizing: border-box;
+		
     }
 
     textarea:focus {
       border-color: var(--primary-color);
       outline: none;
+    
+	
     }
 
     button {
@@ -86,28 +90,27 @@
       transition: background-color 0.3s ease, transform 0.1s ease;
       box-shadow:  4px 4px #000000;
     }
-
-    input[type="file"] {
-      width: 100%;
-      margin-bottom: 20px;
-      padding: 12px;
-      border: 1px solid #000000;
-      border-radius: 4px;
-      background-color: white;
-      font-size: 16px;
-      box-shadow: 4px 4px #000000;
-      box-sizing: border-box;
-    }
-
-    .file-input-container {
-      width: 100%;
-      background-color: white;
-      border-radius: 4px;
-      box-shadow: 4px 4px #000000;
-      padding: 12px;
-      margin-bottom: 20px;
-      box-sizing: border-box;
-    }
+	  input[type="file"] {
+		  width: 100%;
+          margin-bottom: 20px;
+		  padding: 12px;
+		  border: 1px solid #000000;
+		  border-radius: 4px;
+		  background-color: white;
+		  font-size: 16px;
+		  box-shadow: 4px 4px #000000;
+		  box-sizing: border-box;
+			  
+	  }
+	  .file-input-container{
+		  width: 100%;
+		  background-color: white;
+		  border-radius: 4px;
+		  box-shadow: 4px 4px #000000;
+		  padding: 12px;
+		  margin-bottom: 20px;
+		  box-sizing: border-box;
+	  }
 
     button:hover {
       background-color: var(--primary-dark);
@@ -172,22 +175,13 @@
     }
 
     .footer {
-      font-family: open sans;
+		font-family: open sans;
       text-align: center;
       padding: 20px;
       margin-top: auto;
       color: #000000;
       font-size: 16px;
-    }
-
-    .important-notice {
-      font-family: Open sans;
-      font-size: 18px;
-      background-color: #fff3e0;
-      padding: 14px;
-      border-left: 4px solid #ff9800;
-      margin-bottom: 20px;
-      border-radius: 5px;
+     
     }
   </style>
 </head>
@@ -198,17 +192,11 @@
     </div>
     <p><strong>Istruzioni per l'uso:</strong></p>
     <p>Inserisci i nomi dei comuni assicurandoti di utilizzare la maiuscola ed eventuali accenti.</p>
-    <p>Puoi inserire la provincia tra parentesi per evitare errori dovuti a comuni omonimi come nell'esempio sotto, nel caso non inserissi la provincia il calcolo avviene lo stesso con il campo provincia N\A.</p>
-    <p>Oppure carica un file CSV, XLS o XLSX con almeno le colonne Comune e Provincia.</p>
+	  <p>Puoi inserire la provincia tra parentesi per evitare errori dovuti a comuni omonimi come nell'esempio sotto, nel caso non inserissi la provincia il calcolo avviene lo stesso con il campo provincia N\A.</p>
+	  <p>Oppure carica un file CSV (con codifica UTF-8) oppure Excel con almeno le colonne Comune e Provincia.</p>
     
-    <div class="important-notice">
-      <strong>Importante:</strong> Assicurati che il file sia esportato in formato UTF-8 per una corretta gestione degli accenti e dei caratteri speciali.
-    </div>
-
     <textarea id="municipalities" rows="5" placeholder="Es: Milano (Milano), Roma (Roma), Napoli (Napoli)"></textarea>
-    <div class="file-input-container">
-      <input type="file" id="fileInput" accept=".csv,.xls,.xlsx">
-    </div>
+    <input type="file" id="fileInput" accept=".csv,.xls,.xlsx">
     
     <div class="button-group">
       <button id="calculate">Calcola</button>
@@ -241,139 +229,218 @@
     const resetButton = document.getElementById("reset");
     const exportButton = document.getElementById("export");
 
-    let resultsData = []; // Per conservare i risultati
+    let resultsData = [];
 
-    // Caricamento file CSV, XLS, XLSX
+    // Gestione caricamento file
     fileInput.addEventListener('change', (event) => {
       const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
+      if (!file) return;
+
+      const reader = new FileReader();
+      
+      if (file.name.endsWith('.csv')) {
+        // Gestione CSV
         reader.onload = (e) => {
           const content = e.target.result;
-          const extension = file.name.split('.').pop().toLowerCase();
-
-          if (extension === 'csv') {
-            const lines = content.split('\n').map(line => line.trim()).filter(line => line);
-            const header = lines[0].split(';');
-            const comuneIndex = header.findIndex(col => col.toLowerCase().includes("comune"));
-            const provinciaIndex = header.findIndex(col => col.toLowerCase().includes("provincia"));
-
-            if (comuneIndex === -1 || provinciaIndex === -1) {
-              console.error("Non sono state trovate le colonne 'Comune' e 'Provincia'.");
-              return;
-            }
-
-            const municipalities = lines.slice(1).map(line => {
-              const columns = line.split(';');
-              const municipality = columns[comuneIndex]?.trim();
-              const province = columns[provinciaIndex]?.trim();
-              return { municipality, province };
-            }).filter(item => item !== null);
-
-            window.municipalitiesData = municipalities;
-            const names = municipalities.map(item => `${item.municipality} (${item.province})`);
-            municipalitiesTextarea.value = names.join(', ');
-
-          } else if (['xls', 'xlsx'].includes(extension)) {
-            const workbook = XLSX.read(content, { type: 'binary' });
-            const sheetName = workbook.SheetNames[0];
-            const sheet = workbook.Sheets[sheetName];
-            const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-            const header = data[0];
-            const comuneIndex = header.findIndex(col => col.toLowerCase().includes("comune"));
-            const provinciaIndex = header.findIndex(col => col.toLowerCase().includes("provincia"));
-
-            if (comuneIndex === -1 || provinciaIndex === -1) {
-              console.error("Non sono state trovate le colonne 'Comune' e 'Provincia'.");
-              return;
-            }
-
-            const municipalities = data.slice(1).map(row => {
-              const municipality = row[comuneIndex]?.trim();
-              const province = row[provinciaIndex]?.trim();
-              return { municipality, province };
-            }).filter(item => item !== null);
-
-            window.municipalitiesData = municipalities;
-            const names = municipalities.map(item => `${item.municipality} (${item.province})`);
-            municipalitiesTextarea.value = names.join(', ');
-          } else {
-            console.error("Tipo di file non supportato.");
-          }
+          const lines = content.split('\n').map(line => line.trim()).filter(line => line);
+          processFileContent(lines, 'csv');
         };
-        reader.readAsBinaryString(file);
+        reader.readAsText(file);
+      } else if (file.name.endsWith('.xls') || file.name.endsWith('.xlsx')) {
+        // Gestione Excel
+        reader.onload = (e) => {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, { type: 'array' });
+          const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+          const rows = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+          processFileContent(rows, 'excel');
+        };
+        reader.readAsArrayBuffer(file);
       }
     });
 
-    // Calcolare lunghezza strade per ciascun comune
-    document.getElementById('calculate').addEventListener('click', function() {
-      const municipalities = window.municipalitiesData;
-      if (municipalities && municipalities.length > 0) {
-        resultsDiv.innerHTML = '<p>Calcolo in corso...</p>';
-        progressBar.style.width = "0%";
-        progressContainer.style.display = "block";
-
-        let processedCount = 0;
-        const total = municipalities.length;
-
-        municipalities.forEach((municipality, index) => {
-          // Simula calcolo lunghezza strade
-          setTimeout(() => {
-            processedCount++;
-            progressBar.style.width = `${(processedCount / total) * 100}%`;
-
-            if (processedCount === total) {
-              progressBar.innerHTML = "100%";
-              setTimeout(() => progressContainer.style.display = "none", 500);
-              resultsDiv.innerHTML = "<p>Calcolo completato!</p>";
-              // Visualizza i risultati finali
-              displayResults();
-            }
-          }, index * 500);
-        });
+    // Elaborazione del contenuto del file
+    function processFileContent(data, fileType) {
+      let header, rows;
+      
+      if (fileType === 'csv') {
+        header = data[0].split(';');
+        rows = data.slice(1);
+      } else { // excel
+        header = data[0];
+        rows = data.slice(1);
       }
-    });
 
-    // Funzione per visualizzare i risultati
-    function displayResults() {
-      const table = document.createElement("table");
-      const headerRow = document.createElement("tr");
-      headerRow.innerHTML = `
-        <th>Comune</th>
-        <th>Provincia</th>
-        <th>Lunghezza strade (km)</th>
-      `;
-      table.appendChild(headerRow);
+      const comuneIndex = header.findIndex(col => 
+        col.toLowerCase().includes("comune") || 
+        col.toLowerCase().includes("città") ||
+        col.toLowerCase().includes("citta"));
+      const provinciaIndex = header.findIndex(col => 
+        col.toLowerCase().includes("provincia") || 
+        col.toLowerCase().includes("prov"));
 
-      window.municipalitiesData.forEach(municipality => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${municipality.municipality}</td>
-          <td>${municipality.province}</td>
-          <td>0.00</td>
-        `;
-        table.appendChild(row);
-      });
+      if (comuneIndex === -1 || provinciaIndex === -1) {
+        alert("Non sono state trovate le colonne 'Comune' e 'Provincia' nel file.");
+        return;
+      }
 
-      resultsDiv.appendChild(table);
+      const municipalities = rows.map(row => {
+        let columns;
+        if (fileType === 'csv') {
+          columns = row.split(';');
+        } else { // excel
+          columns = row;
+        }
+        
+        const municipality = columns[comuneIndex]?.toString().trim();
+        const province = columns[provinciaIndex]?.toString().trim();
+        
+        if (!municipality || !province) {
+          console.error("Riga non valida:", row);
+          return null;
+        }
+        return { municipality, province };
+      }).filter(item => item !== null);
+
+      window.municipalitiesData = municipalities;
+      const names = municipalities.map(item => `${item.municipality} (${item.province})`);
+      municipalitiesTextarea.value = names.join(', ');
     }
 
-    // Reset
-    resetButton.addEventListener('click', () => {
-      municipalitiesTextarea.value = '';
-      resultsDiv.innerHTML = '';
-      progressContainer.style.display = 'none';
-      fileInput.value = '';
+    // Calcolo lunghezze
+    const fetchLengths = async ({ municipality, province }) => {
+      const provinceFilter = province ? `
+        area[name="${province}"]["boundary"="administrative"]["admin_level"="6"]->.provinceArea;
+        area[name="${municipality}"]["boundary"="administrative"]["admin_level"="8"](area.provinceArea)->.searchArea;
+      ` : `
+        area[name="${municipality}"]["boundary"="administrative"]["admin_level"="8"]->.searchArea;
+      `;
+      
+      const query = `
+      [out:json][timeout:50];
+      ${provinceFilter}
+      way(area.searchArea)["highway"~"^(trunk|primary|secondary|tertiary|unclassified|residential|living_street)$"];
+      out geom;
+      `;
+      const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      let totalLength = 0;
+      if (data.elements) {
+        data.elements.forEach(element => {
+          if (element.geometry) {
+            const lineCoords = element.geometry.map(coord => [coord.lon, coord.lat]);
+            const line = turf.lineString(lineCoords);
+            totalLength += turf.length(line);
+          }
+        });
+      }
+      return totalLength;
+    };
+
+    // Calcolo
+    document.getElementById('calculate').addEventListener('click', () => {
+      const municipalitiesData = window.municipalitiesData || [];
+      const userInput = municipalitiesTextarea.value.split(',').map(m => {
+        const [municipality, province] = m.trim().split(/\(|\)/).map(e => e.trim());
+        return { municipality, province: province || null };
+      });
+      const data = municipalitiesData.length > 0 ? municipalitiesData : userInput;
+
+      resultsData = [];
+      resultsDiv.innerHTML = "Caricamento in corso...";
+      progressContainer.style.display = 'block';
+      progressBar.style.width = '0%';
+      progressBar.textContent = '0%';
+
+      const calculateAll = async () => {
+        let resultsHTML = '<table><tr><th>Comune</th><th>Provincia</th><th>Lunghezza Totale (km)</th><th>Tempo di Percorrenza medio (30 km/h)</th></tr>';
+        for (let i = 0; i < data.length; i++) {
+          const { municipality, province } = data[i];
+          const length = await fetchLengths({ municipality, province });
+          
+          // Calcolo del tempo di percorrenza
+          const timeInHours = length / 30; // velocità media 30 km/h
+          const hours = Math.floor(timeInHours);
+          const minutes = Math.round((timeInHours - hours) * 60);
+          const timeString = hours > 0 ? 
+            `${hours}h ${minutes}m` : 
+            `${minutes}m`;
+
+          resultsHTML += `<tr>
+            <td>${municipality}</td>
+            <td>${province || "N/A"}</td>
+            <td>${length.toFixed(2)}</td>
+            <td>${timeString}</td>
+          </tr>`;
+          
+          resultsData.push({ 
+            municipality, 
+            province, 
+            length: length.toFixed(2),
+            travelTime: timeString
+          });
+
+          const progress = ((i + 1) / data.length) * 100;
+          progressBar.style.width = `${progress}%`;
+          progressBar.textContent = `${Math.round(progress)}%`;
+        }
+        resultsHTML += '</table>';
+        resultsDiv.innerHTML = resultsHTML;
+
+        progressBar.style.width = '100%';
+        progressBar.textContent = 'Completato!';
+      };
+
+      calculateAll();
     });
 
-    // Esportare in Excel
+    // Aggiornamento della funzione di esportazione
     exportButton.addEventListener('click', () => {
-      if (window.municipalitiesData) {
-        const worksheet = XLSX.utils.json_to_sheet(window.municipalitiesData);
-        const workbook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(workbook, worksheet, 'Municipalities');
-        XLSX.writeFile(workbook, 'municipalities.xlsx');
+      if (resultsData.length === 0) {
+        alert("Non ci sono risultati da esportare.");
+        return;
       }
+
+      const sheetData = [
+        ["Comune", "Provincia", "Lunghezza Totale (km)", "Tempo di Percorrenza medio (30 km/h)"],
+        ...resultsData.map(row => [
+          row.municipality,
+          row.province,
+          parseFloat(row.length.replace(',', '.')),
+          row.travelTime
+        ])
+      ];
+
+      const worksheet = XLSX.utils.aoa_to_sheet(sheetData);
+
+      // Formattazione delle celle numeriche
+      const columnLength = sheetData.length;
+      for (let i = 1; i <= columnLength; i++) {
+        const cell = worksheet[`C${i}`];
+        if (cell && typeof cell.v === 'number') {
+          cell.t = 'n';
+          cell.z = '0.00';
+        }
+      }
+
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, "Risultati");
+
+      XLSX.writeFile(workbook, "risultati.xlsx");
+    });
+
+    // Reset
+    resetButton.addEventListener("click", () => {
+      municipalitiesTextarea.value = "";
+      fileInput.value = "";
+      resultsDiv.innerHTML = "";
+      progressContainer.style.display = "none";
+      progressBar.style.width = "0%";
+      progressBar.textContent = "0%";
+      window.municipalitiesData = null;
+      resultsData = [];
     });
   </script>
 </body>
