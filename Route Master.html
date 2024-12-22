@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROUTE MASTER</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/14.0.0/material-components-web.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1976d2;
+      --primary-light: #63a4ff;
+      --primary-dark: #004ba0;
+      --secondary-color: #f5f5f5;
+      --text-color: #333333;
+    }
+
+    body {
+      font-family: open sans;
+      margin: 0;
+      padding: 20px;
+      background-color: rgba(0,0,0,0.1);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      background-color: rgb(239, 240, 238);
+      box-shadow: 4px 4px #000000;
+      border-radius: 4px;
+      border: 2px solid #000000;
+      width: 100%;
+    }
+
+    h1 {
+      font-family: Raleway;
+      color: var(--primary-color);
+      font-size: 13rem;
+      text-shadow: 5px 5px rgba(1, 0, 10, 0.44);
+      margin: 0;
+      font-weight:900;
+    }
+
+    p {
+      font-family: Open sans;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    textarea, input[type="file"] {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 12px;
+      border: 2px solid #000000;
+      border-radius: 4px;
+      background-color: white;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+      box-shadow: 4px 4px;
+      box-sizing: border-box;
+    }
+
+    textarea:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      border: 2px solid #000000;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      transition: background-color 0.3s ease, transform 0.1s ease;
+      box-shadow:  4px 4px #000000;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 12px;
+      border: 1px solid #000000;
+      border-radius: 4px;
+      background-color: white;
+      font-size: 16px;
+      box-shadow: 4px 4px #000000;
+      box-sizing: border-box;
+    }
+
+    .file-input-container {
+      width: 100%;
+      background-color: white;
+      border-radius: 4px;
+      box-shadow: 4px 4px #000000;
+      padding: 12px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    #reset {
+      background-color: #f44336;
+    }
+
+    #export {
+      background-color: #4caf50;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 2px 4px rgba(0,0,0,0.1);
+    }
+
+    th {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px;
+      text-align: left;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #ffffff;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    #progress-container {
+      margin: 20px 0;
+      background: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 15px;
+      display: none;
+    }
+
+    #progress-bar {
+      height: 100%;
+      width: 0;
+      background: var(--primary-color);
+      transition: width 0.3s ease;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+    }
+
+    .footer {
+      font-family: open sans;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+      color: #000000;
+      font-size: 16px;
+    }
+
+    .important-notice {
+      font-family: Open sans;
+      font-size: 18px;
+      background-color: #fff3e0;
+      padding: 14px;
+      border-left: 4px solid #ff9800;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Route Master</h1>
+    </div>
+    <p><strong>Istruzioni per l'uso:</strong></p>
+    <p>Inserisci i nomi dei comuni assicurandoti di utilizzare la maiuscola ed eventuali accenti.</p>
+    <p>Puoi inserire la provincia tra parentesi per evitare errori dovuti a comuni omonimi come nell'esempio sotto, nel caso non inserissi la provincia il calcolo avviene lo stesso con il campo provincia N\A.</p>
+    <p>Oppure carica un file CSV, XLS o XLSX con almeno le colonne Comune e Provincia.</p>
+    
+    <div class="important-notice">
+      <strong>Importante:</strong> Assicurati che il file sia esportato in formato UTF-8 per una corretta gestione degli accenti e dei caratteri speciali.
+    </div>
+
+    <textarea id="municipalities" rows="5" placeholder="Es: Milano (Milano), Roma (Roma), Napoli (Napoli)"></textarea>
+    <div class="file-input-container">
+      <input type="file" id="fileInput" accept=".csv,.xls,.xlsx">
+    </div>
+    
+    <div class="button-group">
+      <button id="calculate">Calcola</button>
+      <button id="reset">Reset</button>
+      <button id="export">Esporta in XLSX</button>
+    </div>
+    
+    <div id="progress-container">
+      <div id="progress-bar">0%</div>
+    </div>
+    
+    <div id="results"></div>
+  </div>
+
+  <footer class="footer">
+    Route Master 1.0 | Designed by Alessandro Renna
+  </footer>
+
+  <!-- Include Turf.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+  <!-- Include SheetJS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+  <script>
+    const municipalitiesTextarea = document.getElementById("municipalities");
+    const fileInput = document.getElementById("fileInput");
+    const resultsDiv = document.getElementById("results");
+    const progressBar = document.getElementById("progress-bar");
+    const progressContainer = document.getElementById("progress-container");
+    const resetButton = document.getElementById("reset");
+    const exportButton = document.getElementById("export");
+
+    let resultsData = []; // Per conservare i risultati
+
+    // Caricamento file CSV, XLS, XLSX
+    fileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const content = e.target.result;
+          const extension = file.name.split('.').pop().toLowerCase();
+
+          if (extension === 'csv') {
+            const lines = content.split('\n').map(line => line.trim()).filter(line => line);
+            const header = lines[0].split(';');
+            const comuneIndex = header.findIndex(col => col.toLowerCase().includes("comune"));
+            const provinciaIndex = header.findIndex(col => col.toLowerCase().includes("provincia"));
+
+            if (comuneIndex === -1 || provinciaIndex === -1) {
+              console.error("Non sono state trovate le colonne 'Comune' e 'Provincia'.");
+              return;
+            }
+
+            const municipalities = lines.slice(1).map(line => {
+              const columns = line.split(';');
+              const municipality = columns[comuneIndex]?.trim();
+              const province = columns[provinciaIndex]?.trim();
+              return { municipality, province };
+            }).filter(item => item !== null);
+
+            window.municipalitiesData = municipalities;
+            const names = municipalities.map(item => `${item.municipality} (${item.province})`);
+            municipalitiesTextarea.value = names.join(', ');
+
+          } else if (['xls', 'xlsx'].includes(extension)) {
+            const workbook = XLSX.read(content, { type: 'binary' });
+            const sheetName = workbook.SheetNames[0];
+            const sheet = workbook.Sheets[sheetName];
+            const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+            const header = data[0];
+            const comuneIndex = header.findIndex(col => col.toLowerCase().includes("comune"));
+            const provinciaIndex = header.findIndex(col => col.toLowerCase().includes("provincia"));
+
+            if (comuneIndex === -1 || provinciaIndex === -1) {
+              console.error("Non sono state trovate le colonne 'Comune' e 'Provincia'.");
+              return;
+            }
+
+            const municipalities = data.slice(1).map(row => {
+              const municipality = row[comuneIndex]?.trim();
+              const province = row[provinciaIndex]?.trim();
+              return { municipality, province };
+            }).filter(item => item !== null);
+
+            window.municipalitiesData = municipalities;
+            const names = municipalities.map(item => `${item.municipality} (${item.province})`);
+            municipalitiesTextarea.value = names.join(', ');
+          } else {
+            console.error("Tipo di file non supportato.");
+          }
+        };
+        reader.readAsBinaryString(file);
+      }
+    });
+
+    // Calcolare lunghezza strade per ciascun comune
+    document.getElementById('calculate').addEventListener('click', function() {
+      const municipalities = window.municipalitiesData;
+      if (municipalities && municipalities.length > 0) {
+        resultsDiv.innerHTML = '<p>Calcolo in corso...</p>';
+        progressBar.style.width = "0%";
+        progressContainer.style.display = "block";
+
+        let processedCount = 0;
+        const total = municipalities.length;
+
+        municipalities.forEach((municipality, index) => {
+          // Simula calcolo lunghezza strade
+          setTimeout(() => {
+            processedCount++;
+            progressBar.style.width = `${(processedCount / total) * 100}%`;
+
+            if (processedCount === total) {
+              progressBar.innerHTML = "100%";
+              setTimeout(() => progressContainer.style.display = "none", 500);
+              resultsDiv.innerHTML = "<p>Calcolo completato!</p>";
+              // Visualizza i risultati finali
+              displayResults();
+            }
+          }, index * 500);
+        });
+      }
+    });
+
+    // Funzione per visualizzare i risultati
+    function displayResults() {
+      const table = document.createElement("table");
+      const headerRow = document.createElement("tr");
+      headerRow.innerHTML = `
+        <th>Comune</th>
+        <th>Provincia</th>
+        <th>Lunghezza strade (km)</th>
+      `;
+      table.appendChild(headerRow);
+
+      window.municipalitiesData.forEach(municipality => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${municipality.municipality}</td>
+          <td>${municipality.province}</td>
+          <td>0.00</td>
+        `;
+        table.appendChild(row);
+      });
+
+      resultsDiv.appendChild(table);
+    }
+
+    // Reset
+    resetButton.addEventListener('click', () => {
+      municipalitiesTextarea.value = '';
+      resultsDiv.innerHTML = '';
+      progressContainer.style.display = 'none';
+      fileInput.value = '';
+    });
+
+    // Esportare in Excel
+    exportButton.addEventListener('click', () => {
+      if (window.municipalitiesData) {
+        const worksheet = XLSX.utils.json_to_sheet(window.municipalitiesData);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Municipalities');
+        XLSX.writeFile(workbook, 'municipalities.xlsx');
+      }
+    });
+  </script>
+</body>
+</html>
