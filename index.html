@@ -39,16 +39,22 @@
 		border: 2px  solid #000000;
 		width: 100%;
     }
+	  .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 15px; /* Spaziatura laterale */
+  box-sizing: border-box;
+}
 
      h1 {
-		font-family: Raleway;
-      color: var(--primary-color);
-      font-size: 13rem;
-		text-shadow: 5px 5px rgba(1, 0, 10, 0.44);
-      margin: 0;
-      font-weight:900;
-		
-    }
+  font-family: Raleway;
+  color: var(--primary-color);
+  font-size: 8vw; /* Adatta la dimensione del testo in base alla larghezza dello schermo */
+  text-shadow: 5px 5px rgba(1, 0, 10, 0.44);
+  margin: 0;
+  font-weight: 900;
+}
 			p {
 			font-family: Open sans;
 			font-size: 18px;
@@ -137,7 +143,11 @@
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 2px 4px rgba(0,0,0,0.1);
+		
     }
+	  #results {
+  overflow-x: auto;
+}
 
     th {
       background-color: var(--primary-color);
@@ -181,6 +191,60 @@
       margin-top: auto;
       color: #000000;
       font-size: 16px;
+		/* Layout responsivo */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 2.5rem; /* Riduce la dimensione del titolo per schermi piccoli */
+  }
+
+  textarea, input[type="file"], button {
+    padding: 10px; /* Riduce il padding per un layout compatto */
+    font-size: 14px; /* Adatta i testi */
+  }
+
+  button {
+    margin-right: 0; /* Rimuove margini laterali */
+    width: 100%; /* Bottoni full-width */
+  }
+
+  table th, table td {
+    font-size: 14px; /* Adatta la dimensione del testo nelle tabelle */
+    padding: 8px; /* Rende più compatto il layout della tabella */
+  }
+
+  .footer {
+    font-size: 12px; /* Riduce la dimensione del testo nel footer */
+  }
+}
+
+/* Layout per schermi più grandi */
+@media (min-width: 1200px) {
+  .header {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  textarea, input[type="file"] {
+    width: 60%; /* Centro il contenuto */
+    margin: 0 auto 20px;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  #results {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
      
     }
   </style>
@@ -191,9 +255,9 @@
       <h1>Route Master</h1>
     </div>
     <p><strong>Istruzioni per l'uso:</strong></p>
-    <p>Inserisci i nomi dei comuni assicurandoti di utilizzare la maiuscola ed eventuali accenti.</p>
-	  <p>Puoi inserire la provincia tra parentesi per evitare errori dovuti a comuni omonimi come nell'esempio sotto, nel caso non inserissi la provincia il calcolo avviene lo stesso con il campo provincia N\A.</p>
-	  <p>Oppure carica un file CSV (con codifica UTF-8) oppure Excel con almeno le colonne Comune e Provincia.</p>
+<p>Inserisci i nomi dei comuni assicurandoti di utilizzare la maiuscola ed eventuali accenti.</p>
+<p>Puoi inserire la provincia tra parentesi per evitare errori dovuti a comuni omonimi, come nell'esempio sotto. Nel caso non inserissi la provincia, il calcolo avverrà ugualmente con il campo provincia impostato su "N/A".</p>
+<p>Oppure carica un file CSV (con codifica UTF-8) o Excel con almeno le colonne **Comune** e **Provincia**.</p>
     
     <textarea id="municipalities" rows="5" placeholder="Es: Milano (Milano), Roma (Roma), Napoli (Napoli)"></textarea>
     <input type="file" id="fileInput" accept=".csv,.xls,.xlsx">
@@ -436,11 +500,11 @@
       municipalitiesTextarea.value = "";
       fileInput.value = "";
       resultsDiv.innerHTML = "";
-      progressContainer.style.display = "none";
       progressBar.style.width = "0%";
       progressBar.textContent = "0%";
-      window.municipalitiesData = null;
+      progressContainer.style.display = "none";
       resultsData = [];
+      window.municipalitiesData = [];
     });
   </script>
 </body>
